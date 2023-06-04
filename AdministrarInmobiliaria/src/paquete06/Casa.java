@@ -1,11 +1,12 @@
 package paquete06;
 
+import java.io.Serializable;
 import paquete02.Propietario;
 import paquete03.Barrio;
 import paquete04.Ciudad;
 import paquete05.Constructora;
 
-public class Casa {
+public class Casa implements Serializable{
     private Propietario propietario;
     private double precioMetroCuadrado;
     private double numeroMetrosCuadrado;
@@ -13,7 +14,7 @@ public class Casa {
     private Barrio barrio;
     private Ciudad ciudad;
     private int numeroCuartos;
-    private Constructora contrutora;
+    private Constructora construtora;
 
     public Casa(Propietario propietario, double precioMetroCuadrado, double numeroMetrosCuadrado, double costoFinal, Barrio barrio, Ciudad ciudad, int numeroCuartos, Constructora contrutora) {
         this.propietario = propietario;
@@ -23,7 +24,7 @@ public class Casa {
         this.barrio = barrio;
         this.ciudad = ciudad;
         this.numeroCuartos = numeroCuartos;
-        this.contrutora = contrutora;
+        this.construtora = contrutora;
     }
 
     public void setPropietario(Propietario propietario) {
@@ -54,8 +55,8 @@ public class Casa {
         this.numeroCuartos = numeroCuartos;
     }
 
-    public void setContrutora(Constructora contrutora) {
-        this.contrutora = contrutora;
+    public void setConstrutora(Constructora construtora) {
+        this.construtora = construtora;
     }
 
     public Propietario getPropietario() {
@@ -86,8 +87,8 @@ public class Casa {
         return numeroCuartos;
     }
 
-    public Constructora getContrutora() {
-        return contrutora;
+    public Constructora getConstrutora() {
+        return construtora;
     }
     
     
