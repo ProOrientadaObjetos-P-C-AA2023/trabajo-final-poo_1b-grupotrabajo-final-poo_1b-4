@@ -17,7 +17,7 @@ public class Departamento {
     private String ubicacion;
     private Constructora contrutora;
 
-    public Departamento(Propietario propietario, double precioMetroCuadrado, double numeroMetrosCuadrado, double valorAlicuotaMensual, double costoFinal, Barrio barrio, Ciudad ciudad, String nombre, String ubicacion, Constructora contrutora) {
+    public Departamento(double precioMetroCuadrado, double numeroMetrosCuadrado, double valorAlicuotaMensual, String nombre, String ubicacion) {
         this.propietario = propietario;
         this.precioMetroCuadrado = precioMetroCuadrado;
         this.numeroMetrosCuadrado = numeroMetrosCuadrado;
@@ -28,6 +28,10 @@ public class Departamento {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.contrutora = contrutora;
+    }
+
+    public Departamento(String nombre, double precio, double numero, double valor, double costofinal, String barrio, String edificio, String ubicacionedificio, String contructora) {
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     public void setPropietario(Propietario propietario) {
@@ -70,7 +74,7 @@ public class Departamento {
         this.contrutora = contrutora;
     }
 
-    public Propietario getPropietario() {
+    public Propietario getPropietario(Propietario propietario) {
         return propietario;
     }
 
@@ -90,11 +94,11 @@ public class Departamento {
         return costoFinal;
     }
 
-    public Barrio getBarrio() {
+    public Barrio getBarrio(Barrio barrio) {
         return barrio;
     }
 
-    public Ciudad getCiudad() {
+    public Ciudad getCiudad(Ciudad ciudad) {
         return ciudad;
     }
 
@@ -106,8 +110,12 @@ public class Departamento {
         return ubicacion;
     }
 
-    public Constructora getContrutora() {
+    public Constructora getContrutora(Constructora constructora) {
         return contrutora;
+    }
+
+    public void getConstrutora(Constructora constructora) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

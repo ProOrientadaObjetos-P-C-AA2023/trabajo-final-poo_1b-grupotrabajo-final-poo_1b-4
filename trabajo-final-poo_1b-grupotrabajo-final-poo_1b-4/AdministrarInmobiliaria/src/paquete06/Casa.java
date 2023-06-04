@@ -16,7 +16,7 @@ public class Casa implements Serializable{
     private int numeroCuartos;
     private Constructora construtora;
 
-    public Casa(double precioMetroCuadrado, double numeroMetrosCuadrado, int numeroCuartos) {
+    public Casa(Propietario propietario, double precioMetroCuadrado, double numeroMetrosCuadrado, double costoFinal, Barrio barrio, Ciudad ciudad, int numeroCuartos, Constructora contrutora) {
         this.propietario = propietario;
         this.precioMetroCuadrado = precioMetroCuadrado;
         this.numeroMetrosCuadrado = numeroMetrosCuadrado;
@@ -24,10 +24,12 @@ public class Casa implements Serializable{
         this.barrio = barrio;
         this.ciudad = ciudad;
         this.numeroCuartos = numeroCuartos;
-        this.construtora = construtora;
+        this.construtora = contrutora;
     }
 
-
+    public Casa(String nombre, double precio, String barrio, String ciudad, double costofinal, String constructora) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     public void setPropietario(Propietario propietario) {
         this.propietario = propietario;
@@ -61,7 +63,7 @@ public class Casa implements Serializable{
         this.construtora = construtora;
     }
 
-    public Propietario getPropietario(Propietario propietario) {
+    public Propietario getPropietario() {
         return propietario;
     }
 
@@ -77,11 +79,11 @@ public class Casa implements Serializable{
         return costoFinal;
     }
 
-    public Barrio getBarrio(Barrio barrio) {
+    public Barrio getBarrio() {
         return barrio;
     }
 
-    public Ciudad getCiudad(Ciudad ciudad) {
+    public Ciudad getCiudad() {
         return ciudad;
     }
 
@@ -89,7 +91,7 @@ public class Casa implements Serializable{
         return numeroCuartos;
     }
 
-    public Constructora getConstrutora(Constructora constuctora) {
+    public Constructora getConstrutora() {
         return construtora;
     }
     
