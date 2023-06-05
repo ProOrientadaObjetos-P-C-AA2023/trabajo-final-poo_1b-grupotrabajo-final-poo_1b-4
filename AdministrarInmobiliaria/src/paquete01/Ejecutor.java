@@ -164,7 +164,6 @@ public class Ejecutor {
         archivo.cerrarArchivo();
     }
 
-    // Dentro del método listarDepartamentos() en la clase Ejecutor en el paquete paquete01
 
 public static void verDepartamento() throws IOException {
     EscrituraDepartamento escrituraDepartamento = new EscrituraDepartamento();
