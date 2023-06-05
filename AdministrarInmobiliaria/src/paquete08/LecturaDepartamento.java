@@ -55,23 +55,12 @@ public class LecturaDepartamento {
     public String getNombreArchivo(){
         return nombredepartamento;
     }
-    @Override 
-    public String toString(){
-        String cadena = "Lista de Departamentos\n";
-        for (int i = 0; i < getDepartamento().size(); i++) {
-            Departamento p = getDepartamento().get(i);
-            cadena = String.format("%s(%d) %s-%d (%s|%s|%d)\n", cadena,
-                    i + 1,
-                    p.getPropietario(),
-                    p.getPrecioMetroCuadrado(),
-                    p.getNumeroMetrosCuadrado(),p.getValorAlicuotaMensual(),
-                    p.getCostoFinal(),p.getBarrio(),
-                    p.getCiudad(),
-                    p.getNombre(),p.getUbicacion(),
-                    p.getContrutora());
-        }
-        return cadena;
+
+    @Override
+    public String toString() {
+        return "LecturaDepartamento{" + "entrada=" + entrada + ", departamento=" + departamento + ", nombredepartamento=" + nombredepartamento + '}';
     }
+    
     public void cerrarArchivo(){
         try{
             if (entrada != null) {

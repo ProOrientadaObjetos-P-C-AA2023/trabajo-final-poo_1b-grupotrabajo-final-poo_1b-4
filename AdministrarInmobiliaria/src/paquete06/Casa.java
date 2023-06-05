@@ -92,8 +92,11 @@ public class Casa implements Serializable{
     public Constructora getConstrutora(Constructora constuctora) {
         return construtora;
     }
+
+    public Object getConstrutora() {
+        return construtora;
+    }
     
     
-    
-    
+
 }

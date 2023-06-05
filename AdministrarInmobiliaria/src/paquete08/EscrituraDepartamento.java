@@ -7,21 +7,25 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import paquete06.Departamento;
 
-public class EscrituraDepartamento {
+public final class EscrituraDepartamento {
     private String nombreArchivo;
     private ObjectOutputStream salida;
     private Departamento registro;
     private ArrayList<Departamento> listaDepartamento;
 
-    public EscrituraDepartamento(String nombreArchivo) throws FileNotFoundException, IOException {
+    public EscrituraDepartamento() throws FileNotFoundException, IOException {
         this.nombreArchivo = nombreArchivo;
         salida = new ObjectOutputStream(new FileOutputStream(nombreArchivo));
-        if (getListaDepartamento().size()>0) {
+        if (!getListaDepartamento().isEmpty()) {
             for (int i = 0; i < getListaDepartamento().size(); i++) {
                 setRegistro(getListaDepartamento().get(i));
                 getSalida();
             }
         }
+    }
+
+    public EscrituraDepartamento(String nombreaArchivo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void setNombreArchivo(String n){

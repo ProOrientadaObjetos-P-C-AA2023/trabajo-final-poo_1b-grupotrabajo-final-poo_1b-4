@@ -14,11 +14,10 @@ import paquete06.Departamento;
 import paquete07.EscrituraCasa;
 import paquete07.LecturaCasa;
 import paquete08.EscrituraDepartamento;
-import paquete08.LecturaDepartamento;
 
 
 public class Ejecutor {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
     Scanner entrada = new Scanner (System.in);
     boolean bandera = true;
     while (bandera){
@@ -77,6 +76,7 @@ public class Ejecutor {
         double precio = entrada.nextDouble();
         System.out.println("INGRESE EL NUMERO DE METROS CUADRADOS: ");
         double cantM2 = entrada.nextDouble();
+        entrada.nextLine();
         System.out.println("INGRESE EL NOMBRE DEL BARRIO:");
         String barrioo = entrada.nextLine();
         System.out.println("INGRESE UNA REFERENCIA: ");
@@ -87,10 +87,12 @@ public class Ejecutor {
         String provincia =entrada.nextLine();
         System.out.println("INGRESE NUMERO DE CUARTOS: ");
         int numeroC = entrada.nextInt();
+        entrada.nextLine();
         System.out.println("INGRESE LA CONSTRUCTORA");
         String constructoraa = entrada.nextLine();
         System.out.println("ID DE LA EMPRESA: ");
         int ID = entrada.nextInt();
+        
         Propietario propietario = new Propietario(nombre,apellidos,id );
         Barrio barrio = new Barrio(barrioo,referencia);
         Ciudad ciudad = new Ciudad(ciudadd,provincia);
@@ -100,19 +102,19 @@ public class Ejecutor {
         casa.getBarrio(barrio);
         casa.getCiudad(ciudad);
         casa.getConstrutora(constructora);
+        
         EscrituraCasa archivo = new EscrituraCasa(nombreaArchivo);
         archivo.setRegistro(casa);
         archivo.setSalida();
         archivo.cerrarArchivo();
     }
     private static void verCasa() {
-        String nombreArchivo = "data/casa,dat";
+        String nombreArchivo = "datos/casa.dat";
         LecturaCasa lectura = new LecturaCasa(nombreArchivo);
         lectura.setCasa();
         System.out.println(lectura);
         lectura.cerrarArchivo();
     }
-
     private static void agregarDepartamento() throws IOException{
         String nombreaArchivo = "datos/departamento.dat";
         Scanner entrada = new Scanner(System.in);
@@ -122,12 +124,13 @@ public class Ejecutor {
         String apellidos = entrada.nextLine();
         System.out.println("IDENTIFICACION DEL PROPIETARIO: ");
         int id = entrada.nextInt();
-        System.out.println("INGRESE EL PRECIO DE LA CASA POR METROS CUADSRADOS:");
+        System.out.println("INGRESE EL PRECIO DE LA CASA POR METROS CUADRADOS:");
         double precio = entrada.nextDouble();
         System.out.println("INGRESE EL NUMERO DE METROS CUADRADOS: ");
         double cantM2 = entrada.nextDouble();
         System.out.println("INGRESE EL VALOR ALICUOTA MENSUAL: ");
         double valorAli = entrada.nextDouble();
+        entrada.nextLine();
         System.out.println("INGRESE EL NOMBRE DEL BARRIO:");
         String barrioo = entrada.nextLine();
         System.out.println("INGRESE UNA REFERENCIA: ");
@@ -144,6 +147,7 @@ public class Ejecutor {
         String constructoraa = entrada.nextLine();
         System.out.println("ID DE LA EMPRESA: ");
         int ID = entrada.nextInt();
+        
         Propietario propietario = new Propietario(nombre,apellidos,id );
         Barrio barrio = new Barrio(barrioo,referencia);
         Ciudad ciudad = new Ciudad(ciudadd,provincia);
@@ -153,16 +157,26 @@ public class Ejecutor {
         departamento.getBarrio(barrio);
         departamento.getCiudad(ciudad);
         departamento.getConstrutora(constructora);
+        
         EscrituraDepartamento archivo = new EscrituraDepartamento(nombreaArchivo);
         archivo.setRegistro(departamento);
         archivo.setSalida();
         archivo.cerrarArchivo();
     }
 
-    private static void verDepartamento() {
-        String nombreArchivo = "data/departamento.dat";
-        LecturaDepartamento lectura = new LecturaDepartamento(nombreArchivo);
-        lectura.setDepartamento();
-        lectura.cerrarArchivo();
+    // Dentro del método listarDepartamentos() en la clase Ejecutor en el paquete paquete01
+
+public static void verDepartamento() throws IOException {
+    EscrituraDepartamento escrituraDepartamento = new EscrituraDepartamento();
+    ArrayList<Departamento> listaDepartamentos = escrituraDepartamento.getListaDepartamento();
+
+    if (listaDepartamentos.isEmpty()) {
+        System.out.println("No hay departamentos para listar.");
+    } else {
+        for (Departamento departamento : listaDepartamentos) {
+            System.out.println(departamento.toString());
+        }
     }
+}
+
 }

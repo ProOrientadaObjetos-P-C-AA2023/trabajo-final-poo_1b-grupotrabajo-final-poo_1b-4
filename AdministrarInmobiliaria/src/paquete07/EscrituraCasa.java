@@ -16,13 +16,13 @@ public class EscrituraCasa {
     public EscrituraCasa(String nombreAr) throws FileNotFoundException, IOException{
         this.nombreArchivo = nombreAr;
         salida = new ObjectOutputStream(new FileOutputStream(nombreArchivo));
-        if (getListaCasa().size()>0) {
+        listaCasa = new ArrayList<>();
+        if (!getListaCasa().isEmpty()) {
             for (int i = 0; i < getListaCasa().size(); i++) {
                 setRegistro(getListaCasa().get(i));
-                getSalida();
+                setSalida();
             }
         }
-
     }
     
     public void setNombreArchivo(String n){
@@ -32,18 +32,19 @@ public class EscrituraCasa {
     public void setRegistro(Casa p){
         registro = p;
     }
+    
     public void setSalida(){
-        try{
+        try {
             salida.writeObject(registro);
-        }catch (IOException ex){
+        } catch (IOException ex) {
             System.out.println("ERROR AL ESCRIBIR EN EL ARCHIVO");
         }
     }
+    
     public void setLista(){
         LecturaCasa l = new LecturaCasa(getNombreArchivo());
         l.setCasa();
         listaCasa = l.getCasa();
-        
     }
 
     public String getNombreArchivo() {
@@ -59,13 +60,13 @@ public class EscrituraCasa {
     }
     
     public void cerrarArchivo(){
-        try{
-        if (salida != null) {
-            salida.close();
-        }
-        }
-        catch(IOException ioException){
+        try {
+            if (salida != null) {
+                salida.close();
+            }
+        } catch(IOException ioException) {
             System.err.println("Error al cerrar el archivo");
         }
     }
 }
+

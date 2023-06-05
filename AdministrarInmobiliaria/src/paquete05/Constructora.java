@@ -23,6 +23,11 @@ public class Constructora {
     public void setIdEmpresa(int idEmpresa) {
         this.idEmpresa = idEmpresa;
     }
+
+    @Override
+    public String toString() {
+        return "Constructora{" + "nombre=" + nombre + ", idEmpresa=" + idEmpresa + '}';
+    }
     
     
 }

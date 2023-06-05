@@ -23,6 +23,9 @@ public class Barrio {
     public void setReferencia(String referencia) {
         this.referencia = referencia;
     }
-    
+    @Override
+    public String toString() {
+        return "Barrio: " + nombre + " (Referencia: " + referencia + ")";
+    }
     
 }

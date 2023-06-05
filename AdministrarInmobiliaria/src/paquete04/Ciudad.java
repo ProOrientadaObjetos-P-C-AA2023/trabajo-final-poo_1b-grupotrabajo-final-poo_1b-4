@@ -23,6 +23,9 @@ public class Ciudad {
     public void setNombreProvincia(String nombreProvincia) {
         this.nombreProvincia = nombreProvincia;
     }
-    
+     @Override
+    public String toString() {
+        return "Ciudad: " + nombreCiudad + " (Provincia: " + nombreProvincia + ")";
+    }
     
 }

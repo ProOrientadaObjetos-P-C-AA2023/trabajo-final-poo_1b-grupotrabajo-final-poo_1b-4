@@ -34,6 +34,9 @@ public class Propietario {
         return identificacion;
     }
     
-    
+    @Override
+    public String toString() {
+        return "Propietario: " + nombres + " " + apellidos + " (ID: " + identificacion + ")";
+    }
 
 }
