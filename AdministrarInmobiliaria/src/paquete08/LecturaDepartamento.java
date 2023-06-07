@@ -13,7 +13,7 @@ public class LecturaDepartamento {
     private ObjectInputStream entrada;
     private ArrayList<Departamento> departamento;
     private String nombredepartamento;
-    public LecturaDepartamento(String n){
+    public LecturaDepartamento(String n, Object par1){
         nombredepartamento = n;
         File f = new File(nombredepartamento);
         if (f.exists()) {

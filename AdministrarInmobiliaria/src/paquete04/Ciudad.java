@@ -23,9 +23,13 @@ public class Ciudad {
     public void setNombreProvincia(String nombreProvincia) {
         this.nombreProvincia = nombreProvincia;
     }
-     @Override
-    public String toString() {
-        return "Ciudad: " + nombreCiudad + " (Provincia: " + nombreProvincia + ")";
+    @Override
+    public String toString()    {
+        String cadena = String.format("Nombre de la Ciudad: %\nNombre de la"+
+                " Provincia: %s\n", 
+                nombreCiudad,
+                nombreProvincia);
+        return cadena;
     }
     
 }

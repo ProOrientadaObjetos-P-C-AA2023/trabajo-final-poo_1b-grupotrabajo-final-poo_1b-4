@@ -1,9 +1,13 @@
 package paquete05;
-public class Constructora {
-    private String nombre;
-    private int idEmpresa;
 
-    public Constructora(String nombre, int idEmpresa) {
+import java.io.Serializable;
+
+public class Constructora implements Serializable{
+    private String nombre;
+    private String idEmpresa;
+
+
+    public Constructora(String nombre, String idEmpresa) {
         this.nombre = nombre;
         this.idEmpresa = idEmpresa;
     }
@@ -16,17 +20,20 @@ public class Constructora {
         this.nombre = nombre;
     }
 
-    public int getIdEmpresa() {
+    public String getIdEmpresa() {
         return idEmpresa;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
+    public void setIdEmpresa(String idEmpresa) {
         this.idEmpresa = idEmpresa;
     }
-
-    @Override
-    public String toString() {
-        return "Constructora{" + "nombre=" + nombre + ", idEmpresa=" + idEmpresa + '}';
+    @Override 
+    public String toString(){
+        String cadena = String.format("Nombre de la Constructoa: %s\nNombre de"
+                + " ID de la constructora %s\n ",
+                nombre,
+                idEmpresa);
+        return cadena;
     }
     
     

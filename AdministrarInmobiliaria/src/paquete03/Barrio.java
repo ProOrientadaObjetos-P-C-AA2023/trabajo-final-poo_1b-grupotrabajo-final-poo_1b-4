@@ -24,8 +24,12 @@ public class Barrio {
         this.referencia = referencia;
     }
     @Override
-    public String toString() {
-        return "Barrio: " + nombre + " (Referencia: " + referencia + ")";
+    public String toString(){
+        String cadena = String.format("Nombre del barrio %s\nReferecnia %s\n", 
+                nombre,
+                referencia);
+        return cadena;
     }
+    
     
 }

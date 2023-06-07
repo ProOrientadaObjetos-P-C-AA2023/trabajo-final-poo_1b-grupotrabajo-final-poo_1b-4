@@ -7,9 +7,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import paquete06.Casa;
 
-public class EscrituraCasa {
+public final class EscrituraCasa {
     private String nombreArchivo;
-    private ObjectOutputStream salida;
+    private final ObjectOutputStream salida;
     private Casa registro;
     private ArrayList<Casa> listaCasa;
 

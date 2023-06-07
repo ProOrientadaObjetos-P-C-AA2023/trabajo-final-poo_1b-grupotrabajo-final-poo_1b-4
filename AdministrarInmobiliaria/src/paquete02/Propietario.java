@@ -1,10 +1,13 @@
 package paquete02;
-public class Propietario {
+
+import java.io.Serializable;
+
+public class Propietario implements Serializable {
     private String nombres;
     private String apellidos;
-    private int identificacion;
-
-    public Propietario(String nombres, String apellidos, int identificacion) {
+    private String identificacion;
+    
+    public Propietario(String nombres, String apellidos, String identificacion) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.identificacion = identificacion;
@@ -18,7 +21,7 @@ public class Propietario {
         this.apellidos = apellidos;
     }
 
-    public void setIdentificacion(int identificacion) {
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 
@@ -29,14 +32,17 @@ public class Propietario {
     public String getApellidos() {
         return apellidos;
     }
-
-    public int getIdentificacion() {
+    public String getIdentificacion(){
         return identificacion;
     }
-    
     @Override
-    public String toString() {
-        return "Propietario: " + nombres + " " + apellidos + " (ID: " + identificacion + ")";
+    public String toString(){
+        String cadena = String.format("Nombre del Propietario: %s\nApellidos del"
+                +" Propietario: %s\nIdentificacion del propietario: %s\n", nombres
+                ,apellidos
+                ,identificacion);
+        return cadena;
     }
+    
 
 }

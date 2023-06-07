@@ -1,5 +1,4 @@
 package paquete06;
-
 import paquete02.Propietario;
 import paquete03.Barrio;
 import paquete04.Ciudad;
@@ -13,108 +12,111 @@ public class Departamento {
     private double costoFinal;
     private Barrio barrio;
     private Ciudad ciudad;
-    private String nombre;
+    private String nombreEdificio;
     private String ubicacion;
-    private Constructora contrutora;
+    private Constructora contructora;
 
-    public Departamento(double precioMetroCuadrado, double numeroMetrosCuadrado, double valorAlicuotaMensual, String nombre, String ubicacion) {
+    public Departamento(Propietario propietario, double precioMetroCuadrado, double numeroMetrosCuadrado, double valorAlicuotaMensual, Barrio barrio, Ciudad ciudad, String nombre, String ubicacion, Constructora contrutora) {
         this.propietario = propietario;
         this.precioMetroCuadrado = precioMetroCuadrado;
         this.numeroMetrosCuadrado = numeroMetrosCuadrado;
         this.valorAlicuotaMensual = valorAlicuotaMensual;
-        this.costoFinal = precioMetroCuadrado * numeroMetrosCuadrado;
         this.barrio = barrio;
         this.ciudad = ciudad;
-        this.nombre = nombre;
+        this.nombreEdificio = nombre;
         this.ubicacion = ubicacion;
-        this.contrutora = contrutora;
+        this.contructora = contrutora;
     }
-
-    public Departamento(String nombre, double precio, double numero, double valor, double costofinal, String barrio, String edificio, String ubicacionedificio, String contructora) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+    public void setPropietario(Propietario p) {
+        propietario = p;
     }
-
-    public void setPropietario(Propietario propietario) {
-        this.propietario = propietario;
+    public void setPrecioMetroCuadrado(double PMC) {
+        precioMetroCuadrado = PMC;
     }
-
-    public void setPrecioMetroCuadrado(double precioMetroCuadrado) {
-        this.precioMetroCuadrado = precioMetroCuadrado;
+    public void setNumeroMetrosCuadrado(double NMC) {
+        numeroMetrosCuadrado = NMC;
     }
-
-    public void setNumeroMetrosCuadrado(double numeroMetrosCuadrado) {
-        this.numeroMetrosCuadrado = numeroMetrosCuadrado;
+    public void setValorAlicuotaMensual(double VAM) {
+        valorAlicuotaMensual = VAM;
     }
-
-    public void setValorAlicuotaMensual(double valorAlicuotaMensual) {
-        this.valorAlicuotaMensual = valorAlicuotaMensual;
+    public void setBarrio(Barrio b) {
+        barrio = b;
     }
-
-    public void setCostoFinal(double costoFinal) {
-        this.costoFinal = costoFinal;
+    public void setCiudad(Ciudad c) {
+        ciudad = c;
     }
-
-    public void setBarrio(Barrio barrio) {
-        this.barrio = barrio;
+    public void setNombreEdificio(String n) {
+        nombreEdificio = n;
     }
-
-    public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
+    public void setUbicacion(String U) {
+        ubicacion = U;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setConstructora (Constructora c){
+        contructora = c;
     }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setCostoFinal(){
+        costoFinal =(numeroMetrosCuadrado * precioMetroCuadrado)+(valorAlicuotaMensual*12);
     }
-
-    public void setContrutora(Constructora contrutora) {
-        this.contrutora = contrutora;
-    }
-
-    public Propietario getPropietario(Propietario propietario) {
+    public Propietario getPropietario(){
         return propietario;
     }
-
     public double getPrecioMetroCuadrado() {
         return precioMetroCuadrado;
     }
-
     public double getNumeroMetrosCuadrado() {
         return numeroMetrosCuadrado;
     }
-
     public double getValorAlicuotaMensual() {
         return valorAlicuotaMensual;
     }
-
-    public double getCostoFinal() {
-        return costoFinal;
-    }
-
-    public Barrio getBarrio(Barrio barrio) {
+    public Barrio getBarrio() {
         return barrio;
     }
-
-    public Ciudad getCiudad(Ciudad ciudad) {
+    public Ciudad getCiudad() {
         return ciudad;
     }
-
-    public String getNombre() {
-        return nombre;
+    public String getNombreEdisicio() {
+        return nombreEdificio;
     }
-
     public String getUbicacion() {
         return ubicacion;
     }
-
-    public Constructora getContrutora(Constructora constructora) {
-        return contrutora;
+    public Constructora getConstructora(){
+        return contructora;
     }
-
-    public void getConstrutora(Constructora constructora) {
+    public double getCostoFinal(){
+        return costoFinal;
     }
-    
-}
+    @Override
+        public String toString(){
+            String espacio = "---------------------------------------------------------";
+            String cadena = String.format("%s\n-REGISTRO.\n\nDatos del Propietario:\n"
+                    + "Nombre del Porpietario: %s\nApellidos del Propietario: %s\n"
+                    + "Identificacion del Propietario:%s\n\nDatos del Barrio:\n"
+                    + "Nombre del Barrio: %s\nReferecnai del Barrio:%s\n\nDatos de"
+                    + " la ciudad:\nNombre de la ciudad: %s\nNombre de la provincia"
+                    + " %s\n\nDatos de la Constructora:\nNombre de la constructora:"
+                    + " %s\nNombre del ID de la Constructora: %s\n\nValores acerca "
+                    + "de la vivienda:\nPrecio del Metro Cuadrado: %s\n\nNumero de  "
+                    + "Metros Cuadrados: %2.f\nNombre del Edificio: %s\nUbicacion del"
+                    + "departamento en ele edificio:%s\nValor de la Alicuota Mensual"
+                    + "%.2f\n Costo final a deppsitar: %.2f\n", espacio
+                    ,propietario.getNombres(),
+                    propietario.getApellidos(),
+                    propietario.getIdentificacion(),
+                    barrio.getNombre(),
+                    barrio.getReferencia(),
+                    ciudad.getNombreCiudad(),
+                    ciudad.getNombreProvincia(),
+                    contructora.getNombre(),
+                    contructora.getIdEmpresa(),
+                    precioMetroCuadrado,
+                    precioMetroCuadrado,
+                    nombreEdificio,
+                    ubicacion,
+                    valorAlicuotaMensual,
+                    costoFinal);
+                
+            return cadena;
+        }   
+    }
